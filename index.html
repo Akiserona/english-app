@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My English App</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f0f4f8; }
+        .card { background: white; width: 300px; height: 200px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: flex; justify-content: center; align-items: center; flex-direction: column; cursor: pointer; transition: transform 0.2s; padding: 20px; text-align: center; }
+        .card:active { transform: scale(0.98); }
+        h2 { margin: 0; font-size: 2em; color: #333; }
+        p { margin-top: 10px; font-size: 1.2em; color: #666; display: none; }
+        .btn { margin-top: 20px; padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <div>
+        <div class="card" onclick="toggleMeaning()">
+            <h2 id="english">Apple</h2>
+            <p id="japanese">りんご</p>
+        </div>
+        <div style="text-align: center;">
+            <button class="btn" onclick="nextWord()">次の単語へ</button>
+        </div>
+    </div>
+
+    <script>
+        // ここに単語データを追加できます
+        const words = [
+            { en: "Apple", ja: "りんご" },
+            { en: "Environment", ja: "環境" },
+            { en: "Develop", ja: "開発する" },
+            { en: "Success", ja: "成功" },
+            { en: "Repository", ja: "貯蔵庫・容器（置き場所）" }
+        ];
+
+        let currentIndex = 0;
+
+        function toggleMeaning() {
+            const jpText = document.getElementById("japanese");
+            // 表示/非表示を切り替え
+            if (jpText.style.display === "block") {
+                jpText.style.display = "none";
+            } else {
+                jpText.style.display = "block";
+            }
+        }
+
+        function nextWord() {
+            // 次の単語に進む（最後まで行ったら最初に戻る）
+            currentIndex = (currentIndex + 1) % words.length;
+            
+            // 画面を更新
+            document.getElementById("english").innerText = words[currentIndex].en;
+            document.getElementById("japanese").innerText = words[currentIndex].ja;
+            document.getElementById("japanese").style.display = "none"; // 答えを隠す
+        }
+    </script>
+
+</body>
+</html>
