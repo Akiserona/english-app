@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+
+:root {
+    --bg-color: #1a1a1a;
+    --card-bg: #2d2d2d;
+    --text-main: #e0e0e0;
+    --text-sub: #a0a0a0;
+    --accent: #d4af37; /* Gold */
+    --btn-bg: #333;
+    --btn-text: #fff;
+    --btn-hover: #444;
+    --correct: #28a745;
+    --incorrect: #dc3545;
+}
+
+body {
+    font-family: 'Lato', 'Noto Serif JP', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+}
+
+.card {
+    background: var(--card-bg);
+    width: 90%;
+    max-width: 400px;
+    min-height: 250px;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 40px;
+    text-align: center;
+    border: 1px solid #333;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.4);
+    border-color: var(--accent);
+}
+
+.card:active {
+    transform: scale(0.98);
+}
+
+h2 {
+    margin: 0;
+    font-family: 'Playfair Display', 'Noto Serif JP', serif;
+    font-size: 2.2em;
+    color: var(--accent);
+    line-height: 1.2;
+}
+
+p {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: var(--text-sub);
+    display: none;
+    font-weight: 300;
+}
+
+.btn {
+    margin: 10px;
+    padding: 12px 24px;
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    font-size: 1em;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    background: var(--accent);
+    color: var(--bg-color);
+}
+
+.btn-correct {
+    border-color: var(--correct);
+    color: var(--correct);
+}
+
+.btn-correct:hover {
+    background: var(--correct);
+    color: white;
+}
+
+.btn-incorrect {
+    border-color: var(--incorrect);
+    color: var(--incorrect);
+}
+
+.btn-incorrect:hover {
+    background: var(--incorrect);
+    color: white;
+}
+
+#progress {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--text-sub);
+    margin-bottom: 2rem;
+}
+
+#controls {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
