@@ -8,12 +8,35 @@
 </head>
 <body>
 
-    <div>
-        <div id="progress" style="text-align: center; margin-bottom: 1rem; color: #666;"></div>
-        <div class="card" onclick="toggleMeaning()">
-            <h2 id="english">Apple</h2>
-            <p id="japanese">りんご</p>
+    <!-- Level Selection Screen -->
+    <div id="level-selection">
+        <h1>Select Difficulty</h1>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+            <button class="btn" onclick="selectLevel('beginner')">Beginner (初級)</button>
+            <button class="btn" onclick="selectLevel('intermediate')">Intermediate (中級)</button>
+            <button class="btn" onclick="selectLevel('advanced')">Advanced (上級)</button>
         </div>
+    </div>
+
+    <!-- Study Screen -->
+    <div id="study-screen" style="display: none;">
+        <div style="position: absolute; top: 20px; left: 20px;">
+            <button class="btn" onclick="showLevelSelection()" style="font-size: 0.8rem; padding: 5px 10px;">&larr; Back</button>
+        </div>
+
+        <div id="progress" style="text-align: center; margin-bottom: 1rem; color: #666;"></div>
+
+        <div class="main-container" style="display: flex; align-items: center; justify-content: center; gap: 1rem; width: 100%;">
+            <button class="nav-btn" onclick="prevWord()">&#10094;</button>
+
+            <div class="card" onclick="toggleMeaning()">
+                <h2 id="english">Apple</h2>
+                <p id="japanese">りんご</p>
+            </div>
+
+            <button class="nav-btn" onclick="nextWord()">&#10095;</button>
+        </div>
+
         <div id="controls" style="text-align: center;">
             <button class="btn" onclick="toggleMeaning()">答えを見る</button>
         </div>
